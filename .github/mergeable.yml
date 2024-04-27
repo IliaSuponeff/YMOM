@@ -6,9 +6,6 @@ mergeable:
       - do: title
         must_exclude:
           regex: ^\[WIP\]
-      - do: label
-        must_exclude:
-          regex: 'wip'
       - do: description
         no_empty:
           enabled: true
@@ -18,3 +15,8 @@ mergeable:
           count: 1
         required:
           assignees: true
+        limit:
+          users:
+            - IliaSuponeff
+            - RodionovMaxim05
+            - Friend-zva
