@@ -12,8 +12,8 @@ The `Graph Visualizer` program provides a GUI for exploring graphs using appropr
 
 ## Provided algorithms
 * Basic algorithms
-  - [ ] graph layouts on the plane
-  - [ ] highlighting key vertices
+  - [x] graph layouts on the plane
+  - [x] highlighting key vertices
   - [ ] search for communities
 * Classical algorithms
   - [ ] isolation of strongly connected components (directed graph)
