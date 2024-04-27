@@ -13,10 +13,9 @@ mergeable:
       - do: approvals
         min:
           count: 1
-        required:
-          assignees: true
         limit:
           users:
             - IliaSuponeff
             - RodionovMaxim05
             - Friend-zva
+            
