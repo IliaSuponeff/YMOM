@@ -12,10 +12,9 @@ mergeable:
           message: Description matter and should not be empty. Provide detail with **what** was changed, **why** it was changed, and **how** it was changed.
       - do: approvals
         min:
-          count: 1
+          count: 2
         limit:
           users:
             - IliaSuponeff
             - RodionovMaxim05
             - Friend-zva
-            
