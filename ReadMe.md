@@ -5,15 +5,15 @@
 [![License][license_img]][repo_license_url]
 
 
-<h1 align="center">Graph Visualizer(TestProject)</h1>
+<h1 align="center">Graph Visualizer</h1>
 
 ## Description
 The `Graph Visualizer` program provides a GUI for exploring graphs using appropriate algorithms. 
 
 ## Provided algorithms
 * Basic algorithms
-  - [x] graph layouts on the plane
-  - [x] highlighting key vertices
+  - [ ] graph layouts on the plane
+  - [ ] highlighting key vertices
   - [ ] search for communities
 * Classical algorithms
   - [ ] isolation of strongly connected components (directed graph)
