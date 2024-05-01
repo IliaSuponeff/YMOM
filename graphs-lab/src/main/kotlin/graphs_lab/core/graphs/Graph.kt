@@ -11,6 +11,10 @@ abstract class Graph<I, E : Edge<I>>(
 ) {
 	private val vertices = mutableMapOf<I, Vertex<I>>()
 	private val edges = mutableMapOf<I, MutableSet<E>>()
+	val idVertices
+		get() = vertices.keys
+	val size: Int
+		get() = vertices.size
 
 	fun addVertex(id: I) {
 		vertices.putIfAbsent(id, Vertex(id))
@@ -28,6 +32,10 @@ abstract class Graph<I, E : Edge<I>>(
 
 	fun containsVertex(id: I): Boolean {
 		return vertices[id] != null
+	}
+
+	fun vertexEdges(id: I): Set<E> {
+		return edges.getOrDefault(id, mutableSetOf())
 	}
 
 	override fun toString(): String {
