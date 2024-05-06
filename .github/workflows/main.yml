@@ -19,5 +19,8 @@ jobs:
       - name: Build source code
         run: ./gradlew build -x test
 
+      - name: Test source code
+        run: ./gradlew test
+
       - name: Display test results for library 'graphs-lab'
         run: python3 ./scripts/test-result-printer.py --dir ./graphs-lab/build/test-results/test --all-failures
