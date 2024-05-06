@@ -16,6 +16,9 @@ jobs:
       - name: Run jacoco coverage report
         run: ./gradlew jacocoTestReport >./test-res-out.log 2>./test-res-err.log
 
+      - name: Print path
+        run: echo ${{ github.workspace }}/build/reports/jacoco/info.xml
+
       - name: Add coverage to PR
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
