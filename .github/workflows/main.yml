@@ -24,3 +24,9 @@ jobs:
 
       - name: Display test results for library 'graphs-lab'
         run: python3 ./scripts/test-result-printer.py --dir ./graphs-lab/build/test-results/test --all-failures
+
+      - name: Run jacoco coverage report
+        run: ./gradlew jacocoTestReport
+
+      - name: Display info about coverage
+        run: python3 ./scripts/csv-reports-printer.py --input ./graphs-lab/build/reports/jacoco/info.csv --lib graphs-lab
