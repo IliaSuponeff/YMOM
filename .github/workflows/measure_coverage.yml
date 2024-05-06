@@ -30,5 +30,5 @@ jobs:
       - name: Add coverage to PR
         uses: Andreea-Marcu/jacoco-report@v1.3.3
         with:
-          paths: ./graphs-lab/build/reports/jacoco/info.xml
+          paths: ./graphs-lab/build/reports/jacoco/info.csv
           token: ${{ secrets.GITHUB_TOKEN }}
