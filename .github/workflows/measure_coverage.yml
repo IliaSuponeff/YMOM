@@ -17,13 +17,13 @@ jobs:
         run: ./gradlew jacocoTestReport >./test-res-out.log 2>./test-res-err.log
 
       - name: Print path
-        run: echo ${{ github.workspace }}/build/reports/jacoco/info.xml
+        run: echo ./build/reports/jacoco/info.xml
 
       - name: Add coverage to PR
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
         with:
-          paths: ${{ github.workspace }}/build/reports/jacoco/info.xml
+          paths: ./build/reports/jacoco/info.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 40
           min-coverage-changed-files: 60
