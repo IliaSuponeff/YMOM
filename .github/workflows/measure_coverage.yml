@@ -7,19 +7,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
 
-      - name: Run tests
-        run: ./gradlew test >./test-res-out.log 2>./test-res-err.log
-        continue-on-error: true
+      - name: Build and test
+        run: ./gradlew test
 
-      - name: Run jacoco coverage report
-        run: ./gradlew jacocoTestReport >./test-res-out.log 2>./test-res-err.log
+      - name: Run Coverage
+        run: ./gradlew jacocoTestReport
 
-      - name: Print path
-        run: |
-          echo ./build/reports/jacoco/info.xml
-          ls -a
+      - name: Upload Report
+        uses: 'actions/upload-artifact@v2'
+        with:
+          name: report.xml
+          path: ./graphs-lab/build/reports/jacoco/info.xml
 
       - name: Add coverage to PR
         id: jacoco
@@ -29,3 +33,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 40
           min-coverage-changed-files: 60
+
+      - name: Get the Coverage info
+        run: |
+          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"  
