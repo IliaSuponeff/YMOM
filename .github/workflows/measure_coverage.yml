@@ -28,7 +28,7 @@ jobs:
 
       - name: Add coverage to PR
         id: jacoco
-        uses: madrapps/jacoco-report@v1.3
+        uses: Andreea-Marcu/jacoco-report@v1.3.3
         with:
           paths: ./graphs-lab/build/reports/jacoco/info.xml
           token: ${{ secrets.GITHUB_TOKEN }}
