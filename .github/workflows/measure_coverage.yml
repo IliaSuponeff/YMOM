@@ -17,7 +17,9 @@ jobs:
         run: ./gradlew jacocoTestReport >./test-res-out.log 2>./test-res-err.log
 
       - name: Print path
-        run: echo ./build/reports/jacoco/info.xml
+        run: |
+          echo ./build/reports/jacoco/info.xml
+          ls -a
 
       - name: Add coverage to PR
         id: jacoco
