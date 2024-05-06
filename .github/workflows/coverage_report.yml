@@ -1,4 +1,4 @@
-name: Measure coverage
+name: Coverage Report
 
 on:
   pull_request:
@@ -16,16 +16,6 @@ jobs:
 
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
-
-      - name: Display path
-        run: |
-          ls -a ./graphs-lab/
-          echo "============="
-          ls -a ./graphs-lab/build
-          echo "============="
-          ls -a ./graphs-lab/build/reports
-          echo "============="
-          ls -a ./graphs-lab/build/reports/jacoco
 
       - name: Add coverage to PR
         uses: madrapps/jacoco-report@v1.6.1
