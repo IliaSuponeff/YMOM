@@ -1,32 +1,20 @@
 package graphs_lab.core.edges
 
-open class WeightedEdge<I, W : Number>(
+/**
+ * Represents a weighted edge in a graph.
+ *
+ * @param I the type of the edge identifiers
+ * @param W the type of the weight associated with the edge (must be a subtype of Number)
+ * @property weight the weight of the edge
+ */
+open class WeightedEdge<I>(
 	idSource: I,
 	idTarget: I,
-	val weight: W
+	val weight: Double
 ) : Edge<I>(idSource, idTarget) {
 
 	override fun toString(): String {
 		return "${javaClass.simpleName}(source = $idSource, target = $idTarget, weight = $weight)"
-	}
-
-	override fun equals(other: Any?): Boolean {
-		if (this === other) return true
-		if (javaClass != other?.javaClass) return false
-
-		other as WeightedEdge<*, *>
-		if (idSource != other.idSource) return false
-		if (idTarget != other.idTarget) return false
-		if (weight != other.weight) return false
-		return true
-	}
-
-	override fun hashCode(): Int {
-		var result = javaClass.name.hashCode()
-		result = 31 * result + idSource.hashCode()
-		result = 31 * result + idTarget.hashCode()
-		result = 31 * result + weight.hashCode()
-		return result
 	}
 
 }

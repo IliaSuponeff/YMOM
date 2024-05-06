@@ -17,5 +17,6 @@ plugins {
 	id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }
 
-rootProject.name = "graphs-graphs-12"
+rootProject.name = "YMOM"
+include("application")
 include("graphs-lab")
