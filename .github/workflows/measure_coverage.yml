@@ -1,0 +1,26 @@
+name: Measure coverage
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run tests
+        run: ./gradlew test >./test-res-out.log 2>./test-res-err.log
+        continue-on-error: true
+
+      - name: Run jacoco coverage report
+        run: ./gradlew jacocoTestReport >./test-res-out.log 2>./test-res-err.log
+
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
+        with:
+          paths: ${{ github.workspace }}/build/reports/jacoco/info.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 40
+          min-coverage-changed-files: 60

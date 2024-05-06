@@ -40,9 +40,10 @@ tasks.named<JacocoReport>("jacocoTestReport") {
 	val jacocoReportsDirName = "reports${sep}jacoco"
 	reports {
 		csv.required = true
-		xml.required = false
+		xml.required = true
 		html.required = true
 		csv.outputLocation = layout.buildDirectory.file("${jacocoReportsDirName}${sep}info.csv")
 		html.outputLocation = layout.buildDirectory.dir("${jacocoReportsDirName}${sep}html")
+		xml.outputLocation = layout.buildDirectory.file("${jacocoReportsDirName}${sep}info.xml")
 	}
 }
