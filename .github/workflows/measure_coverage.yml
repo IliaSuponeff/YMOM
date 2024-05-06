@@ -20,11 +20,15 @@ jobs:
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
 
-      - name: Upload Report
-        uses: 'actions/upload-artifact@v2'
-        with:
-          name: report.xml
-          path: ./graphs-lab/build/reports/jacoco/info.xml
+      - name: Display path
+        run: |
+          ls -a ./graphs-lab/
+          echo "============="
+          ls -a ./graphs-lab/build
+          echo "============="
+          ls -a ./graphs-lab/build/reports
+          echo "============="
+          ls -a ./graphs-lab/build/reports/jacoco
 
       - name: Add coverage to PR
         id: jacoco
