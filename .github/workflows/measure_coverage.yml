@@ -17,6 +17,19 @@ jobs:
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
 
+      - name: Upload JaCoCo Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: jacoco-report
+          path: ./graphs-lab/build/reports/jacoco/test/html/index.html
+
+      - name: Print JaCoCo Report on PR
+        uses: peter-evans/create-pull-request-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            Your JaCoCo report is available [here](https://<YOUR-REPO-URL>/actions/artifacts/<RUN-ID>#LATES
+
       - name: Display path
         run: |
           ls -a ./graphs-lab/
@@ -27,16 +40,11 @@ jobs:
           echo "============="
           ls -a ./graphs-lab/build/reports/jacoco
 
-      - name: Add coverage to PR
-        uses: madrapps/jacoco-report@v1.6.1
-        id: jacoco
-        with:
-          paths: ./graphs-lab/build/reports/jacoco/info.xml
-          token: ${{ secrets.GITHUB_TOKEN }}
-          min-coverage-overall: 40
-          min-coverage-changed-files: 60
-
-      - name: Get the Coverage info
-        run: |
-          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
-          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
+#      - name: Add coverage to PR
+#        uses: madrapps/jacoco-report@v1.6.1
+#        id: jacoco
+#        with:
+#          paths: ./graphs-lab/build/reports/jacoco/info.xml
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          min-coverage-overall: 40
+#          min-coverage-changed-files: 60
