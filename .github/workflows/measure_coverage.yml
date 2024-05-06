@@ -28,7 +28,7 @@ jobs:
           ls -a ./graphs-lab/build/reports/jacoco
 
       - name: Add coverage to PR
-        uses: Andreea-Marcu/jacoco-report@v1.3.3
+        uses: madrapps/jacoco-report@v1.3.3
         id: jacoco
         with:
           paths: ./graphs-lab/build/reports/jacoco/info.xml
