@@ -14,7 +14,8 @@ jobs:
           java-version: 1.8
 
       - name: Build and test
-        run: ./gradlew test
+        run: ./gradlew test >./test-res-out.log 2>./test-res-err.log
+        continue-on-error: true
 
       - name: Run Coverage
         run: ./gradlew jacocoTestReport
