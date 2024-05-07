@@ -42,3 +42,7 @@ detekt {
     ignoreFailures = false
     basePath = projectDir.absolutePath
 }
+
+if ("detekt" !in gradle.startParameter.taskNames) {
+	tasks.detekt { enabled = false }
+}
