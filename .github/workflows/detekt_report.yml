@@ -11,9 +11,11 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Run Detekt and generic result
-        uses: alaegin/Detekt-Action@v1.23.6
+      - name: Run detekt
+        run: ./gradlew detekt
+
+      - name: Upload SARIF to GitHub using the upload-sarif action
+        uses: github/codeql-action/upload-sarif@v2
+        if: success() || failure()
         with:
-          github_token: ${{ secrets.github_token }}
-          detekt_config: ./config/detekt.yml
-          reviewdog_reporter: github-pr-review
+          sarif_file: ./build/reports/detekt/detekt.sarif
