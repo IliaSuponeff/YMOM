@@ -1,6 +1,9 @@
 version: 2
+on:
+  pull_request:
+
 mergeable:
-  - when: pull_request.*
+  - when: pull_request
     name: 'Check decoration'
     validate:
       - do: title
