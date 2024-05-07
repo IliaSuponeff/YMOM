@@ -15,8 +15,9 @@ jobs:
         run: ./gradlew detekt
         continue-on-error: true
 
-      - uses: zattoo/output@v1
-        name: Display results
+      - name: Display detekt report
+        uses: danielhs1/comment-on-pr@v1.3.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{github.token}}
-          sources: './build/reports/detekt/'
+          msg: ./build/reports/detekt/detekt.md
