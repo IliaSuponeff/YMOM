@@ -90,13 +90,6 @@ exceptions:
   ThrowingExceptionInMain:
     active: true
 
-libraries:
-  active: true
-  ForbiddenPublicDataClass:
-    active: false
-  LibraryEntitiesShouldNotBePublic:
-    active: false
-
 naming:
   active: true
   BooleanPropertyNaming:
@@ -168,9 +161,6 @@ potential-bugs:
     active: true
   UnnecessaryNotNullCheck:
     active: true
-
-ruleauthors:
-  active: true
 
 style:
   active: true

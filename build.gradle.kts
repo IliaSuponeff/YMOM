@@ -17,9 +17,7 @@ repositories {
 }
 
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-rules-libraries:${detekt.toolVersion}")
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-rules-ruleauthors:${detekt.toolVersion}")
 }
 
 kotlin {
