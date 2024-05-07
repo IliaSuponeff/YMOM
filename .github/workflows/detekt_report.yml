@@ -18,3 +18,6 @@ jobs:
           detekt_config: ./config/detekt.yml # Change config path
           reviewdog_reporter: github-pr-review
         continue-on-error: true
+
+      - name: All now
+        run: ls -a
