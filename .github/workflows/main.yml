@@ -8,8 +8,10 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  build:
+  all:
+    name: Run all analyzers and build sources
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 

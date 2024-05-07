@@ -7,9 +7,11 @@ on:
 
 
 jobs:
-  build:
+  tests:
+    name: Load tests results
     runs-on: ubuntu-latest
     permissions: write-all
+
     steps:
       - uses: actions/checkout@v3
 
