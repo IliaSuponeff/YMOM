@@ -21,3 +21,9 @@ jobs:
 
       - name: All now
         run: ls -a
+
+      - name: Publish Checkstyle report
+        uses: Juuxel/publish-checkstyle-report@v1
+        if: ${{ failure() || success() }}
+        with:
+          reports: ./detekt_report.xml
