@@ -11,13 +11,9 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Run detekt
-        run: ./gradlew detekt
-        continue-on-error: true
-
-      - name: Display detekt report
-        uses: danielhs1/comment-on-pr@v1.3.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: detekt
+        uses: DominuS-RU/Detekt-Action@master
         with:
-          msg: ./build/reports/detekt/detekt.md
+          github_token: ${{ secrets.github_token }}
+          detekt_config: ./config/detekt.yml # Change config path
+        continue-on-error: true
