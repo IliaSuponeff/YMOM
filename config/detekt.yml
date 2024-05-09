@@ -166,10 +166,6 @@ style:
   active: true
   AlsoCouldBeApply:
     active: true
-  BracesOnIfStatements:
-    active: true
-    singleLine: 'never'
-    multiLine: 'always'
   BracesOnWhenStatements:
     active: true
     singleLine: 'necessary'
@@ -185,11 +181,10 @@ style:
     active: true
   EqualsOnSignatureLine:
     active: true
+  EqualsNullCall:
+    active: false
   ExplicitCollectionElementAccessMethod:
     active: true
-  ExpressionBodySyntax:
-    active: true
-    includeLineWrapping: false
   ForbiddenAnnotation:
     active: true
     annotations:

@@ -17,10 +17,9 @@ jobs:
 
       - name: Static analyze
         run: ./gradlew detekt
-        continue-on-error: true
 
       - name: Build source code
-        run: ./gradlew build -x test
+        run: ./gradlew build -x test detekt
 
       - name: Test source code
         run: ./gradlew test

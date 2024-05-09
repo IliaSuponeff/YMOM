@@ -44,5 +44,5 @@ detekt {
 }
 
 if ("detekt" !in gradle.startParameter.taskNames) {
-	tasks.detekt { enabled = false }
+    tasks.detekt { enabled = false }
 }

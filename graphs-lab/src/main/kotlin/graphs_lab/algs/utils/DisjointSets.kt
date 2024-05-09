@@ -13,10 +13,9 @@ class DisjointSets<T>(elements: Collection<T>) {
 		private set
 
 	init {
-		if (elements.isEmpty()) throw IllegalArgumentException(
-			"Empty elements collection, can't init disjoint sets"
-		)
-		elements.forEach() { element ->
+		require(elements.isNotEmpty()) { "Empty elements collection, can't init disjoint sets" }
+
+		elements.forEach { element ->
 			parents.putIfAbsent(element, element)
 			rangs.putIfAbsent(element, 0)
 		}
