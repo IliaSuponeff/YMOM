@@ -19,5 +19,11 @@ mergeable:
       - do: approvals
         min:
           count: 1
+          message: 'Must have one or more reviewers on PR'
         required:
+          reviewers: [IliaSuponeff, Friend-zva, RodionovMaxim05]
           assignees: true
+          requested_reviewers: true
+          message: 'Must have assignees of all reviewers'
+        exclude:
+          users: ['github-actions'] # when the option is present, approvals from users in this list will NOT count
