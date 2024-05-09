@@ -13,8 +13,10 @@ class DisjointSets<T>(elements: Collection<T>) {
 		private set
 
 	init {
-		require(elements.isNotEmpty()) { "Empty elements collection, can't init disjoint sets" }
-		elements.forEach { element ->
+		if (elements.isEmpty()) throw IllegalArgumentException(
+			"Empty elements collection, can't init disjoint sets"
+		)
+		elements.forEach() { element ->
 			parents.putIfAbsent(element, element)
 			rangs.putIfAbsent(element, 0)
 		}
@@ -28,7 +30,9 @@ class DisjointSets<T>(elements: Collection<T>) {
 	 * @throws IllegalArgumentException if the element is not found in the disjoint sets
 	 */
 	fun findRoot(element: T): T {
-		require(element in parents.keys) { "DisjointSet structure is not contains element $element" }
+		if (element !in parents.keys) throw IllegalArgumentException(
+			"DisjointSet structure is not contains element $element"
+		)
 
 		val root: T = getParent(element)
 		updateRoot(element, root)
@@ -134,4 +138,5 @@ class DisjointSets<T>(elements: Collection<T>) {
 	override fun toString(): String {
 		return "DisjointSets${getDisjointSets()}"
 	}
+
 }

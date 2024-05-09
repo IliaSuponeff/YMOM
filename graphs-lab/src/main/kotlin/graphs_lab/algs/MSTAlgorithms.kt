@@ -80,12 +80,7 @@ class MSTAlgorithms<I, E : Edge<I>>(val graph: Graph<I, E>) {
 		val priorityQueue = PriorityQueue<PriorityPair<Double, E>>()
 		for (idVertex in graph.idVertices) {
 			for (edge in graph.vertexEdges(idVertex)) {
-				priorityQueue.add(
-					PriorityPair(
-						getEdgeWeight(edge),
-						edge
-					)
-				)
+				priorityQueue.add(PriorityPair(getEdgeWeight(edge), edge))
 			}
 		}
 		return Pair(priorityQueue, DisjointSets(graph.idVertices))
@@ -109,12 +104,7 @@ class MSTAlgorithms<I, E : Edge<I>>(val graph: Graph<I, E>) {
 	 */
 	private fun primAddVertex(idVertex: I, priorityQueue: PriorityQueue<PriorityPair<Double, E>>) {
 		for (edge in graph.vertexEdges(idVertex)) {
-			priorityQueue.add(
-				PriorityPair(
-					getEdgeWeight(edge),
-					edge
-				)
-			)
+			priorityQueue.add(PriorityPair(getEdgeWeight(edge), edge))
 		}
 	}
 
