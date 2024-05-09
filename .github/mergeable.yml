@@ -14,13 +14,16 @@ mergeable:
           enabled: true
           message: Description matter and should not be empty. Provide detail with **what** was changed, **why** it was changed, and **how** it was changed.
       - do: approvals
-        min:
-          count: 1
-          message: 'Must have one or more reviewers on PR'
-        required:
-          reviewers: [IliaSuponeff, Friend-zva, RodionovMaxim05]
-          assignees: true
-          requested_reviewers: true
-          message: 'Must have assignees of all reviewers'
-        exclude:
-          users: ['github-actions'] # when the option is present, approvals from users in this list will NOT count
+        and:
+          - min:
+            count: 1
+          - required:
+              assignees: true
+              message: 'All assignees must approve this PR before merging.'
+          - or:
+              - required:
+                  reviewers: ["IliaSuponeff"]
+              - required:
+                  reviewers: ["Friend-zva"]
+              - required:
+                  reviewers: ["RodionovMaxim05"]
